@@ -1,6 +1,6 @@
 import React from 'react';
 import d3 from 'd3';
-import nv from 'nvd3';
+import _ from 'nvd3'; // nvd3 v1.1.15 doesn't export anything. 'nv' goes straight into window...
 import {
   pick,
   without,
