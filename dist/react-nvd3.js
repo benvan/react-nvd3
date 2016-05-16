@@ -186,8 +186,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      // hook for configuring the chart
 	      !this.props.configure || this.props.configure(this.chart);
 
+	      var duration = this.props.duration;
+	      var selection = _d2.default.select(this.refs.svg).datum(this.props.datum);
+
+	      selection = duration !== undefined ? selection.transition().duration(duration) : selection;
+
 	      // Render chart using d3
-	      this.selection = _d2.default.select(this.refs.svg).datum(this.props.datum).call(this.chart);
+	      this.selection = selection.call(this.chart);
 
 	      // Update the chart if the window size change.
 	      // Save resizeHandle to remove the resize listener later.
